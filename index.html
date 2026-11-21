@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Vishab Book Publication</title>
+<title>VISHAB BOOK PUBLICATION</title>
 <meta name="description" content="A work-from-home handwriting project for women. Flexible hours, with all details shared openly on our Telegram channel.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +31,6 @@ main{
   display:flex;flex-direction:column;align-items:center;
   gap:clamp(7px,1.6vh,16px);
 }
-.logo{height:clamp(30px,5vh,44px);width:auto;max-width:160px;object-fit:contain}
 .profile{
   width:clamp(64px,11vh,96px);height:clamp(64px,11vh,96px);
   border-radius:50%;object-fit:cover;
@@ -102,6 +101,7 @@ src="https://www.facebook.com/tr?id=1474180831354414&ev=PageView&noscript=1"
 </head>
 <body>
 <main>
+  <!-- Put profile.jpg in the same folder as this file -->
   <img class="profile" src="profile.jpg" alt="Profile photo" data-ph="profile">
 
   <div class="pill"><i></i>For Women &middot; Flexible &middot; From Home</div>
@@ -139,13 +139,10 @@ src="https://www.facebook.com/tr?id=1474180831354414&ev=PageView&noscript=1"
 </main>
 
 <script>
-// Placeholder if logo.png / profile.jpg are missing
+// Placeholder if profile.jpg is missing
 document.querySelectorAll('img[data-ph]').forEach(function(img){
   img.addEventListener('error',function(){
-    if(img.dataset.ph==='logo'){
-    }else{
-      img.src='data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96"><rect width="96" height="96" fill="#DDD6CC"/><circle cx="48" cy="38" r="16" fill="#8A8277"/><path d="M16 96c2-22 16-32 32-32s30 10 32 32Z" fill="#8A8277"/></svg>');
-    }
+    img.src='data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96"><rect width="96" height="96" fill="#DDD6CC"/><circle cx="48" cy="38" r="16" fill="#8A8277"/><path d="M16 96c2-22 16-32 32-32s30 10 32 32Z" fill="#8A8277"/></svg>');
   },{once:true});
 });
 </script>
