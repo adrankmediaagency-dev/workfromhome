@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>VISHAB BOOK PUBLICATION</title>
+<title>Vishab Book Publication</title>
 <meta name="description" content="A work-from-home handwriting project for women. Flexible hours, with all details shared openly on our Telegram channel.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,75 +11,101 @@
 <style>
 :root{
   --ink:#1B1A19; --slate:#2F3E52; --slate-2:#5A6C85; --muted:#5E5A55;
-  --card:#FBF9F5; --edge:#DDD6CC;
+  --card:#FBF9F5; --edge:#DDD6CC; --pill:rgba(255,255,255,.6); --fine:#6F6A63;
+  --bg1:#F6F2EB; --bg2:#EEE8DE; --glow:#E6DCCB; --ring:#fff;
   --serif:'Newsreader',Georgia,serif;
   --sans:'Outfit',system-ui,-apple-system,'Segoe UI',sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ink:#F1ECE4; --slate:#B9C7DB; --slate-2:#8FA3BF; --muted:#B5AEA4;
+    --card:#25282D; --edge:#3A3E45; --pill:rgba(255,255,255,.06); --fine:#9A948B;
+    --bg1:#1A1C1F; --bg2:#15171A; --glow:#2A2F37; --ring:#2F3338;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#F1ECE4; --slate:#B9C7DB; --slate-2:#8FA3BF; --muted:#B5AEA4;
+  --card:#25282D; --edge:#3A3E45; --pill:rgba(255,255,255,.06); --fine:#9A948B;
+  --bg1:#1A1C1F; --bg2:#15171A; --glow:#2A2F37; --ring:#2F3338;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;overflow:hidden}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;color-scheme:light dark}
 body{
-  height:100dvh;font-family:var(--sans);color:var(--ink);
-  display:flex;align-items:center;justify-content:center;
-  padding:max(12px,env(safe-area-inset-top)) 18px max(12px,env(safe-area-inset-bottom));
-  background:
-    radial-gradient(900px 500px at 100% 0%,#E6DCCB 0%,transparent 60%),
-    linear-gradient(180deg,#F6F2EB 0%,#EEE8DE 100%);
+  min-height:100vh;min-height:100dvh;
+  font-family:var(--sans);color:var(--ink);
+  display:flex;justify-content:center;align-items:center;
+  padding:28px 18px;
+  background-color:var(--bg2);
+  background-image:radial-gradient(900px 500px at 100% 0%,var(--glow) 0%,transparent 60%),linear-gradient(180deg,var(--bg1) 0%,var(--bg2) 100%);
+  background-attachment:fixed;
   -webkit-font-smoothing:antialiased;
 }
 main{
   width:100%;max-width:440px;text-align:center;
-  display:flex;flex-direction:column;align-items:center;
-  gap:clamp(7px,1.6vh,16px);
+  display:flex;flex-direction:column;align-items:center;gap:16px;
 }
 .profile{
-  width:clamp(64px,11vh,96px);height:clamp(64px,11vh,96px);
-  border-radius:50%;object-fit:cover;
-  border:3px solid #fff;box-shadow:0 8px 20px -8px rgba(47,62,82,.55);
+  width:88px;height:88px;border-radius:50%;object-fit:cover;
+  border:3px solid var(--ring);box-shadow:0 8px 20px -8px rgba(47,62,82,.55);
   background:var(--edge);
 }
 .pill{
-  display:inline-flex;align-items:center;gap:9px;
-  border:1px solid var(--edge);background:rgba(255,255,255,.6);
-  border-radius:999px;padding:clamp(6px,1.1vh,10px) 18px;
-  font-size:clamp(10.5px,1.5vh,12.5px);font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--slate);
+  display:inline-flex;align-items:center;gap:9px;max-width:100%;
+  border:1px solid var(--edge);background:var(--pill);
+  border-radius:999px;padding:8px 16px;
+  font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);
 }
-.pill i{width:7px;height:7px;border-radius:50%;background:var(--slate);display:block}
-.kicker{font-size:clamp(12.5px,1.8vh,15px);font-weight:500;color:var(--slate)}
+.pill i{flex:none;width:7px;height:7px;border-radius:50%;background:var(--slate)}
+.kicker{font-size:15px;font-weight:500;color:var(--slate)}
 h1{
   font-family:var(--serif);font-weight:500;
-  font-size:clamp(36px,7.2vh,64px);line-height:1;letter-spacing:-.02em;
+  font-size:clamp(38px,12vw,56px);line-height:1.02;letter-spacing:-.02em;
 }
 h1 span{display:block;color:var(--slate)}
-.lead{font-size:clamp(13px,1.9vh,16px);line-height:1.55;color:var(--muted);max-width:40ch}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(7px,1.3vh,14px);width:100%}
+.lead{font-size:16px;line-height:1.6;color:var(--muted);max-width:38ch}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%}
 .card{
   background:var(--card);border:1px solid var(--edge);border-radius:18px;
-  padding:clamp(8px,1.6vh,18px) 10px;
-  display:flex;flex-direction:column;align-items:center;gap:3px;
+  padding:16px 10px;
+  display:flex;flex-direction:column;align-items:center;gap:4px;
 }
-.card svg{width:clamp(18px,2.8vh,26px);height:clamp(18px,2.8vh,26px);color:var(--ink);margin-bottom:2px}
-.card b{font-size:clamp(13.5px,1.9vh,16.5px);font-weight:600}
-.card small{font-size:clamp(11.5px,1.6vh,14px);color:var(--muted)}
+.card svg{width:26px;height:26px;color:var(--ink);margin-bottom:2px}
+.card b{font-size:15px;font-weight:600;line-height:1.25}
+.card small{font-size:13px;line-height:1.3;color:var(--muted)}
 .cta{
-  width:88%;display:flex;align-items:center;justify-content:center;gap:12px;
-  text-decoration:none;color:#fff;font-weight:600;font-size:clamp(16px,2.3vh,19px);
-  padding:clamp(13px,2.2vh,19px) 20px;border-radius:16px;
-  background:linear-gradient(90deg,var(--slate) 0%,var(--slate-2) 100%);
+  width:100%;min-height:56px;display:flex;align-items:center;justify-content:center;gap:12px;
+  text-decoration:none;color:#fff;font-weight:600;font-size:18px;
+  padding:16px 20px;border-radius:16px;
+  background:linear-gradient(90deg,#2F3E52 0%,#5A6C85 100%);
   box-shadow:0 14px 28px -12px rgba(47,62,82,.65);
+  -webkit-tap-highlight-color:transparent;
   transition:transform .15s,filter .2s;
 }
 .cta:hover{filter:brightness(1.08)}
 .cta:active{transform:scale(.98)}
 .cta:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
-.cta svg{width:22px;height:22px}
-.checks{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 16px;font-size:clamp(11.5px,1.7vh,14px);font-weight:500}
+.cta svg{flex:none;width:22px;height:22px}
+.checks{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;font-size:13.5px;font-weight:500}
 .checks span::before{content:"\2713\00a0";font-weight:600}
-.fine{font-size:clamp(10.5px,1.4vh,12px);line-height:1.5;color:#7A756E;max-width:40ch}
+.fine{font-size:12.5px;line-height:1.55;color:var(--fine);max-width:38ch}
+@media (max-width:360px){
+  body{padding:20px 14px}
+  .grid{gap:8px}
+  .card{padding:12px 6px}
+  .card b{font-size:14px}
+  .cta{font-size:17px}
+}
+@media (max-height:640px) and (orientation:landscape){
+  body{align-items:flex-start}
+}
 @media (prefers-reduced-motion:no-preference){
   main{animation:in .6s ease-out both}
   @keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 }
-@media (min-width:900px){ main{max-width:480px} }
+@media (min-width:900px){main{max-width:480px}}
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -95,17 +121,16 @@ fbq('init', '1474180831354414');
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1474180831354414&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->  
+src="https://www.facebook.com/tr?id=1474180831354414&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 <main>
   <!-- Put profile.jpg in the same folder as this file -->
-  <img class="profile" src="profile.jpg" alt="Profile photo" data-ph="profile">
+  <img class="profile" src="profile.jpg" alt="Profile photo" width="88" height="88" data-ph="profile">
 
   <div class="pill"><i></i>For Women &middot; Flexible &middot; From Home</div>
-  <p class="kicker">Women's Work-From-Home Opportunity</p>
+  <p class="kicker">Women’s Work-From-Home Opportunity</p>
   <h1>Vishab Book <span>Publication</span></h1>
   <p class="lead">A work-from-home handwriting project for women. Flexible hours, with all details and updates shared openly on our Telegram channel.</p>
 
