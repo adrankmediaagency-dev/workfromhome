@@ -1,251 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Vishab Book Publication</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-
+<meta name="description" content="A work-from-home handwriting project for women. Flexible hours, with all details shared openly on our Telegram channel.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
+:root{
+  --ink:#1B1A19; --slate:#2F3E52; --slate-2:#5A6C85; --muted:#5E5A55;
+  --card:#FBF9F5; --edge:#DDD6CC;
+  --serif:'Newsreader',Georgia,serif;
+  --sans:'Outfit',system-ui,-apple-system,'Segoe UI',sans-serif;
 }
-
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
 body{
-font-family:'Poppins',sans-serif;
-background:linear-gradient(135deg,#0b6eb8,#18c13d);
+  height:100dvh;font-family:var(--sans);color:var(--ink);
+  display:flex;align-items:center;justify-content:center;
+  padding:max(12px,env(safe-area-inset-top)) 18px max(12px,env(safe-area-inset-bottom));
+  background:
+    radial-gradient(900px 500px at 100% 0%,#E6DCCB 0%,transparent 60%),
+    linear-gradient(180deg,#F6F2EB 0%,#EEE8DE 100%);
+  -webkit-font-smoothing:antialiased;
 }
-
-/* Main Container */
-
-.sio-main-container{
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-padding:20px;
+main{
+  width:100%;max-width:440px;text-align:center;
+  display:flex;flex-direction:column;align-items:center;
+  gap:clamp(7px,1.6vh,16px);
 }
-
-/* Card */
-
-.sio-landing-wrap{
-max-width:520px;
-width:100%;
-text-align:center;
-background:#fff;
-padding:30px 25px;
-border-radius:18px;
-box-shadow:0 10px 30px rgba(0,0,0,.15);
+.logo{height:clamp(30px,5vh,44px);width:auto;max-width:160px;object-fit:contain}
+.profile{
+  width:clamp(64px,11vh,96px);height:clamp(64px,11vh,96px);
+  border-radius:50%;object-fit:cover;
+  border:3px solid #fff;box-shadow:0 8px 20px -8px rgba(47,62,82,.55);
+  background:var(--edge);
 }
-
-/* Pulse Animation */
-
-@keyframes pulse-blue{
-0%{box-shadow:0 0 0 0 rgba(11,110,184,.7)}
-70%{box-shadow:0 0 0 18px rgba(11,110,184,0)}
-100%{box-shadow:0 0 0 0 rgba(11,110,184,0)}
+.pill{
+  display:inline-flex;align-items:center;gap:9px;
+  border:1px solid var(--edge);background:rgba(255,255,255,.6);
+  border-radius:999px;padding:clamp(6px,1.1vh,10px) 18px;
+  font-size:clamp(10.5px,1.5vh,12.5px);font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--slate);
 }
-
-/* Button */
-
-.sio-btn{
-display:block;
-width:100%;
-background:linear-gradient(45deg,#0b6eb8,#0a8be0);
-color:#fff;
-padding:16px;
-font-size:16px;
-font-weight:700;
-border-radius:50px;
-text-decoration:none;
-margin:15px 0;
-transition:.3s;
-animation:pulse-blue 2s infinite;
+.pill i{width:7px;height:7px;border-radius:50%;background:var(--slate);display:block}
+.kicker{font-size:clamp(12.5px,1.8vh,15px);font-weight:500;color:var(--slate)}
+h1{
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(36px,7.2vh,64px);line-height:1;letter-spacing:-.02em;
 }
-
-.sio-btn:hover{
-transform:scale(1.05);
-background:linear-gradient(45deg,#095c9d,#0b6eb8);
+h1 span{display:block;color:var(--slate)}
+.lead{font-size:clamp(13px,1.9vh,16px);line-height:1.55;color:var(--muted);max-width:40ch}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(7px,1.3vh,14px);width:100%}
+.card{
+  background:var(--card);border:1px solid var(--edge);border-radius:18px;
+  padding:clamp(8px,1.6vh,18px) 10px;
+  display:flex;flex-direction:column;align-items:center;gap:3px;
 }
-
-/* Profile */
-
-.sio-profile{
-margin:20px 0;
+.card svg{width:clamp(18px,2.8vh,26px);height:clamp(18px,2.8vh,26px);color:var(--ink);margin-bottom:2px}
+.card b{font-size:clamp(13.5px,1.9vh,16.5px);font-weight:600}
+.card small{font-size:clamp(11.5px,1.6vh,14px);color:var(--muted)}
+.cta{
+  width:88%;display:flex;align-items:center;justify-content:center;gap:12px;
+  text-decoration:none;color:#fff;font-weight:600;font-size:clamp(16px,2.3vh,19px);
+  padding:clamp(13px,2.2vh,19px) 20px;border-radius:16px;
+  background:linear-gradient(90deg,var(--slate) 0%,var(--slate-2) 100%);
+  box-shadow:0 14px 28px -12px rgba(47,62,82,.65);
+  transition:transform .15s,filter .2s;
 }
-
-.sio-avatar{
-width:110px;
-height:110px;
-margin:auto;
-border-radius:50%;
-overflow:hidden;
-border:4px solid #fff;
-box-shadow:0 5px 15px rgba(0,0,0,.2);
+.cta:hover{filter:brightness(1.08)}
+.cta:active{transform:scale(.98)}
+.cta:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.cta svg{width:22px;height:22px}
+.checks{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 16px;font-size:clamp(11.5px,1.7vh,14px);font-weight:500}
+.checks span::before{content:"\2713\00a0";font-weight:600}
+.fine{font-size:clamp(10.5px,1.4vh,12px);line-height:1.5;color:#7A756E;max-width:40ch}
+@media (prefers-reduced-motion:no-preference){
+  main{animation:in .6s ease-out both}
+  @keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 }
-
-.sio-avatar img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-.sio-headline{
-margin-top:12px;
-font-size:24px;
-font-weight:800;
-color:#18c13d;
-}
-
-/* Features */
-
-.sio-features{
-margin-top:10px;
-}
-
-.sio-feature{
-display:flex;
-justify-content:center;
-align-items:center;
-gap:10px;
-margin:8px 0;
-}
-
-.sio-feature p{
-font-weight:600;
-color:#333;
-}
-
-.sio-tick{
-width:24px;
-height:24px;
-border-radius:50%;
-background:#eaf7ea;
-display:flex;
-align-items:center;
-justify-content:center;
-font-weight:800;
-color:#18c13d;
-font-size:14px;
-}
-
-/* Highlight */
-
-.sio-highlight{
-margin:18px 0;
-padding:10px;
-background:#f1f8ff;
-border-radius:10px;
-font-weight:700;
-color:#0b6eb8;
-}
-
-/* Disclaimer */
-
-.sio-disclaimer{
-margin-top:20px;
-font-size:11px;
-color:#777;
-line-height:1.4;
-}
-
-/* Mobile */
-
-@media(max-width:480px){
-.sio-btn{
-font-size:14px;
-padding:14px;
-}
-
-.sio-headline{
-font-size:21px;
-}
-
-.sio-feature p{
-font-size:13px;
-}
-}
-
+@media (min-width:900px){ main{max-width:480px} }
 </style>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1474180831354414');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1474180831354414&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 </head>
-
 <body>
+<main>
+  <!-- Put logo.png and profile.jpg in the same folder as this file -->
+  <img class="logo" src="logo.png" alt="Logo" data-ph="logo">
+  <img class="profile" src="profile.jpg" alt="Profile photo" data-ph="profile">
 
-<div class="sio-main-container">
+  <div class="pill"><i></i>For Women &middot; Flexible &middot; From Home</div>
+  <p class="kicker">Women's Work-From-Home Opportunity</p>
+  <h1>Vishab Book <span>Publication</span></h1>
+  <p class="lead">A work-from-home handwriting project for women. Flexible hours, with all details and updates shared openly on our Telegram channel.</p>
 
-<div class="sio-landing-wrap">
+  <div class="grid">
+    <div class="card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>
+      <b>Work From Home</b><small>Complete freedom</small>
+    </div>
+    <div class="card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+      <b>Flexible Hours</b><small>Your own schedule</small>
+    </div>
+    <div class="card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8 7 10 4-2 7-5.5 7-10V6Z"/><path d="m9 12 2 2 4-4"/></svg>
+      <b>Women Only</b><small>Women-focused community</small>
+    </div>
+    <div class="card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+      <b>Clear Guidelines</b><small>Read before joining</small>
+    </div>
+  </div>
 
-<a class="sio-btn" href="https://t.me/+xq9vCmA2u4E0MmI1" target="_blank">
-JOIN TELEGRAM CHANNEL 🚀
-</a>
+  <a id="join" class="cta" href="https://telegram.me/+xq9vCmA2u4E0MmI1" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3 18.7 19c-.2 1-.9 1.3-1.7.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 12.7 1.8 11.2c-1-.3-1-1 .2-1.5L20.3 2.6c.9-.3 1.7.2 1.6 1.7Z"/></svg>
+    Join Telegram Channel
+  </a>
 
-<div class="sio-profile">
+  <div class="checks"><span>Simple Process</span><span>Flexible Schedule</span><span>Updates on Telegram</span></div>
 
-<div class="sio-avatar">
-<img src="profile.jpg" alt="Profile Image">
-</div>
+  <p class="fine">Never share your bank or personal details with anyone. Read all terms in the channel carefully before you join.</p>
+</main>
 
-<div class="sio-headline">
-Vishab Book Publication</div>
-
-</div>
-
-<div class="sio-features">
-
-<div class="sio-feature">
-<div class="sio-tick">✓</div>
-<p>Simple Writing Work – No Experience Needed</p>
-</div>
-
-<div class="sio-feature">
-<div class="sio-tick">✓</div>
-<p>Earn ₹15,000 – ₹30,000 Per Month</p>
-</div>
-
-<div class="sio-feature">
-<div class="sio-tick">✓</div>
-<p>Work From Home • Flexible Timing</p>
-</div>
-
-<div class="sio-highlight">
-Limited Seats Available – Apply Today! 🚀
-</div>
-
-</div>
-
-<a class="sio-btn" href="https://t.me/+xq9vCmA2u4E0MmI1" target="_blank">
-JOIN TELEGRAM CHANNEL 🚀
-</a>
-
-<div class="sio-disclaimer">
-<b style="color:#0a7a3a">Note:</b> This is project-based work. 
-Earnings depend on performance and submission quality.
-</div>
-<span><a href="https://t.me/adsrankmedia">Advertised by AdRank Media</a></span> 
-</div>
-</div>
-
+<script>
+// Placeholder if logo.png / profile.jpg are missing
+document.querySelectorAll('img[data-ph]').forEach(function(img){
+  img.addEventListener('error',function(){
+    if(img.dataset.ph==='logo'){
+      img.src='data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="140" height="40"><rect width="140" height="40" rx="8" fill="#2F3E52"/><text x="70" y="26" font-family="Arial" font-size="15" fill="#fff" text-anchor="middle">YOUR LOGO</text></svg>');
+    }else{
+      img.src='data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96"><rect width="96" height="96" fill="#DDD6CC"/><circle cx="48" cy="38" r="16" fill="#8A8277"/><path d="M16 96c2-22 16-32 32-32s30 10 32 32Z" fill="#8A8277"/></svg>');
+    }
+  },{once:true});
+});
+</script>
 </body>
-</html>
+</html>+99999999999-
